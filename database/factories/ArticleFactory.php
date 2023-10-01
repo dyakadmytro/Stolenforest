@@ -17,7 +17,10 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => implode(' ', $this->faker->words(4)),
+            'content' => implode('/r/n',$this->faker->paragraphs(5)),
+            'cover_img_id' => 1,
+            'banner_img_id' => 1
         ];
     }
 }
