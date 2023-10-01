@@ -9,9 +9,9 @@ export default {
         extend: {
             width: {
                 '100': '25rem',
-
             },
             height: {
+                '100': '26rem',
                 '50': '13rem'
             }
         }

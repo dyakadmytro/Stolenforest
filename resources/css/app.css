@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gallery {
+    @apply bg-transparent;
+}
+
+.gallery-cell {
+    @apply w-80 h-100 mr-2.5;
+}
+
+.gallery-cell:before {
+    @apply block text-center text-white text-6xl;
+    line-height: 200px;
+}
