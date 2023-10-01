@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,6 +16,11 @@ class DashboardController extends Controller
 
     public function posts()
     {
-        return view('admin.posts');
+        $projects = Project::with('post')->get();
+        $articles = Article::all();
+        return view('admin.posts', [
+            'projects' => $projects,
+            'articles' => $articles,
+        ]);
     }
 }
