@@ -5,9 +5,17 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-  theme: {
-    extend: {},
-  },
+    theme: {
+        extend: {
+            width: {
+                '100': '25rem',
+
+            },
+            height: {
+                '50': '13rem'
+            }
+        }
+    },
   plugins: [],
 }
 
