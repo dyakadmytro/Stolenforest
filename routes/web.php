@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,7 @@ use App\Http\Controllers\Admin\DashboardController;
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::middleware('auth:web')->group(function () {
