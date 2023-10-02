@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->foreignIdFor(\App\Models\Image::class, 'cover_img_id');
             $table->foreignIdFor(\App\Models\Image::class, 'banner_img_id');
         });

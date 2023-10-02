@@ -19,18 +19,21 @@ use App\Http\Controllers\Admin\ArticleController;
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:web')->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::prefix('admin')->group( function () {
+        Route::post('projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
         Route::get('posts', [DashboardController::class, 'posts'])->name('admin.posts');
-        Route::resource('projects',ProjectController::class);
+        Route::resource('projects',ProjectController::class)->except(['update']);
         Route::resource('articles',ArticleController::class);
+
+
     });
 
 });

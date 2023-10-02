@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('link');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->foreignIdFor(\App\Models\Image::class, 'cover_img_id');
         });
     }

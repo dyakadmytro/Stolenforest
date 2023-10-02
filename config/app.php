@@ -183,6 +183,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'img-store' => \App\Facades\ImgStore::class
     ])->toArray(),
 
 ];

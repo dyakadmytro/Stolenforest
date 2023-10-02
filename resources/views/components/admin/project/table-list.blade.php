@@ -14,7 +14,9 @@
             <tr class="hover:bg-slate-200">
                 <td class="px-4 py-2 border-b border-gray-300">{{$project->name}}</td>
                 <td class="px-4 py-2 border-b border-gray-300"><a href="{{$project->link}}">{{$project->link}}</a></td>
-                <td class="px-4 py-2 border-b border-gray-300">{{$project->coverimg_id}}</td>
+                <td class="px-4 py-2 border-b border-gray-300">
+                    <img src="{{'/storage/'.$project->cover->path}}" class="h-12">
+                </td>
                 <td class="px-4 py-2 border-b border-gray-300">{{$project->created_at}}</td>
                 <td class="px-4 py-2 border-b border-gray-300">
                     <a href="{{route('projects.edit', ['project' => $project->id])}}" >

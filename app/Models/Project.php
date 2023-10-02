@@ -31,4 +31,9 @@ class Project extends Model
             },
         );
     }
+
+    public function cover()
+    {
+        return $this->belongsTo(Image::class, 'cover_img_id');
+    }
 }
