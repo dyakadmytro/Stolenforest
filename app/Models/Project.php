@@ -13,6 +13,10 @@ class Project extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'name', 'link', 'description', 'cover_img_id'
+    ];
+
     public function post(): MorphOne
     {
         return $this->morphOne(Post::class, 'postable');

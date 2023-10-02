@@ -33,5 +33,4 @@ Route::middleware('auth:web')->group(function () {
         Route::resource('articles',ArticleController::class);
     });
 
-
 });
