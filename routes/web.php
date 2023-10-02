@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\ArticleController;
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::middleware('auth:web')->group(function () {

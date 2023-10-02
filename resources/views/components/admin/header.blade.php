@@ -2,12 +2,14 @@
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
         <div>
-            <h1 class="text-2xl font-bold text-white">Logo</h1>
+            <a class="block w-20" href="{{route('home')}}">
+                <img src="{{ asset('storage/images/logo.svg') }}" alt="stolenforest-logo" title="Home">
+            </a>
         </div>
 
         <!-- Logout Button -->
         <div>
-            <a href="/logout" class="text-white hover:text-gray-300">Logout</a>
+            <a href="/logout" class="text-white hover:text-indigo-500">Logout</a>
         </div>
     </div>
 </div>

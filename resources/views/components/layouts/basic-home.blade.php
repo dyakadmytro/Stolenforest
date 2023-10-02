@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gradient-to-b from-slate-900 from-10% via-sky-950 via-30% to-gray-800 to-90% font-sans h-screen">
     <div class="h-50 w-full flex justify-center p-8">
-        <a class="block w-40" href="/">
+        <a class="block w-40" href="{{route('home')}}">
             <img src="{{ asset('storage/images/logo.svg') }}" alt="stolenforest-logo" title="Stolenforest logo">
         </a>
     </div>
