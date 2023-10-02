@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\ArticleController;
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::middleware('auth:web')->group(function () {
         Route::get('posts', [DashboardController::class, 'posts'])->name('admin.posts');
         Route::resource('projects',ProjectController::class)->except(['update']);
         Route::resource('articles',ArticleController::class);
-
+        Route::resource('tags',TagController::class);
 
     });
 

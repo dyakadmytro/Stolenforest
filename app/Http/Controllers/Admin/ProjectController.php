@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Image;
 use App\Models\Project;
+use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
@@ -25,7 +26,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.project.create');
+        return view('admin.project.create', [
+            'tags' => Tag::all(),
+        ]);
     }
 
     /**
@@ -46,6 +49,7 @@ class ProjectController extends Controller
                     'cover_img_id' => $image->id
                 ]);
             $project->post()->create();
+            $project->post->tags()->sync($request->get('tags', []));
         });
 
         return response()->redirectToRoute('admin.posts');
@@ -65,7 +69,8 @@ class ProjectController extends Controller
     public function edit(Project $Project)
     {
         return view('admin.project.edit', [
-            'project' => $Project
+            'project' => $Project->with('post.tags')->first(),
+            'tags' => Tag::all(),
         ]);
     }
 
@@ -92,6 +97,7 @@ class ProjectController extends Controller
             $Project->update($request->all([
                     'name', 'link', 'description'
                 ]) + $data);
+            $Project->post->tags()->sync($request->get('tags', []));
         });
 
         return response()->redirectToRoute('admin.posts');
