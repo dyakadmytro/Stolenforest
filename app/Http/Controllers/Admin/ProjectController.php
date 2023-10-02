@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
-use App\Models\Post;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -22,13 +22,13 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.project.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(StoreProjectRequest $request)
     {
         //
     }
@@ -36,7 +36,7 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Project $Project)
     {
         //
     }
@@ -44,15 +44,17 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Project $Project)
     {
-        //
+        return view('admin.project.edit', [
+            'project' => $Project
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateProjectRequest $request, Project $Project)
     {
         //
     }
@@ -60,7 +62,7 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Project $Project)
     {
         //
     }

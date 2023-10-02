@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +27,11 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/admin/posts', [DashboardController::class, 'posts'])->name('posts');
+    Route::prefix('admin')->group( function () {
+        Route::get('posts', [DashboardController::class, 'posts'])->name('admin.posts');
+        Route::resource('projects',ProjectController::class);
+        Route::resource('articles',ArticleController::class);
+    });
+
+
 });
