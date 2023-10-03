@@ -1,6 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    overflow-x: hidden;
+}
+
+.text-glitch{
+
+    position: relative;
+
+    color: #fff;
+
+    font-weight: 700;
+
+    font-size: 22px;
+
+    transform: scale(2);
+
+    padding: 20px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
 
 .gallery {
     @apply bg-transparent;

@@ -30,23 +30,22 @@
 
     <label for="countries_multiple" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a tags</label>
     @error('tags')
-    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+        <p class="text-red-500 text-xs italic">{{ $message }}</p>
     @enderror
     <select multiple id="tags" name="tags[]" class="my-8 bg-gray-50 border border-gray-300 text-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-300 dark:border-gray-600 dark:placeholder-gray-200 dark:text-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500">
         @foreach($tags as $tag)
-            <option value="{{$tag->id}}" {{ $project->post->tags->contains(function (int $model, int $key) use($tag) {
-                        dd($model);
-            })?? 'checked'  }}>{{$tag->name}}</option>
+            <option value="{{$tag->id}}" {{ $project->post->tags->contains(function ( $model) use($tag) {
+                        return $tag->id === $model->id;
+            })? 'selected' : ''  }}>{{$tag->name}}</option>
         @endforeach
     </select>
 
-
-{{--    <!-- Cover img preview -->--}}
-{{--    <div class="mb-4">--}}
-{{--        <div class="card">--}}
-{{--            <img src="{{'/storage/'.$project->cover->path}}">--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <!-- Cover img preview -->
+    <div class="mb-4">
+        <div class="card">
+            <img src="{{'/storage/'.$project->cover->path}}">
+        </div>
+    </div>
 
     <!-- Cover Image ID -->
     <!-- This assumes you have a dropdown list of image IDs. Adjust accordingly. -->

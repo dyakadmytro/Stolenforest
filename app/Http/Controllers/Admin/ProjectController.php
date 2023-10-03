@@ -66,10 +66,10 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $Project)
+    public function edit(Project $project)
     {
         return view('admin.project.edit', [
-            'project' => $Project->with('post.tags')->first(),
+            'project' => $project->load('post.tags'),
             'tags' => Tag::all(),
         ]);
     }
