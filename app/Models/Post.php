@@ -11,16 +11,6 @@ class Post extends Model
 {
     use HasFactory;
 
-//    public function article(): MorphOne
-//    {
-//        return $this->morphOne(Article::class, 'postable');
-//    }
-//
-//    public function project(): MorphOne
-//    {
-//        return $this->morphOne(Project::class, 'postable');
-//    }
-
     public function postable(): MorphTo
     {
         return $this->morphTo();

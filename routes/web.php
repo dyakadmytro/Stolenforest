@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\WidgetController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +36,7 @@ Route::middleware('auth:web')->group(function () {
         Route::resource('projects',ProjectController::class)->except(['update']);
         Route::resource('articles',ArticleController::class);
         Route::resource('tags',TagController::class);
-
+        Route::resource('widgets',WidgetController::class);
     });
 
 });
